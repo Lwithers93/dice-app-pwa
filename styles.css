@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+
+body {
+  background-color: #009900;
+}
+
+.btn {
+  color: black;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+select,
+option {
+  color: black;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.dice-board,
+.main {
+  flex-direction: column;
+
+  padding: 6px;
+  gap: 6px;
+}
+
+.dice-board {
+  height: 50vh;
+  justify-content: space-around;
+}
+
+.dice-selection {
+  font-size: 1.5rem;
+  padding: 6px;
+  gap: 6px;
+}
+
+.main {
+  height: 100vh;
+}
+
+.main > p {
+  font-size: 2rem;
+}
+
+#diceDisplay {
+  width: 80vw;
+  flex-wrap: wrap;
+}
+
+#diceDisplay > i {
+  font-size: 8rem;
+  color: black;
+  padding: 6px;
+}
+
+#totalDisplay {
+  font-size: 2rem;
+}

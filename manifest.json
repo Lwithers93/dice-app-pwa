@@ -1,0 +1,17 @@
+{
+  "background_color": "black",
+  "description": "This is your personal Dice App.",
+  "orientation": "portrait-primary",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "W-logo.png",
+      "sizes": "179x179",
+      "type": "image/png"
+    }
+  ],
+  "name": "Dice App",
+  "short_name": "Dice App",
+  "start_url": "index.html",
+  "permissions": ["storage"]
+}
