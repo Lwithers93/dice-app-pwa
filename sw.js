@@ -11,7 +11,7 @@ const precacheResources = [
   "/dice-app-pwa/",
   "/dice-app-pwa/index.html",
   "/dice-app-pwa/index.js",
-  "/dice-app-pwa/manifest.json",
+  "/dice-app-pwa/manifest.manifest",
   "/dice-app-pwa/styles.css",
   "/dice-app-pwa/W-logo.png",
 ];
