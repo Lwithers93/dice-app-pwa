@@ -1,57 +1,96 @@
-const diceOne = '<i class="fa-solid fa-dice-one"></i>';
-const diceTwo = '<i class="fa-solid fa-dice-two"></i>';
-const diceThree = '<i class="fa-solid fa-dice-three"></i>';
-const diceFour = '<i class="fa-solid fa-dice-four"></i>';
-const diceFive = '<i class="fa-solid fa-dice-five"></i>';
-const diceSix = '<i class="fa-solid fa-dice-six"></i>';
-const preRoll = '<i class="fa-solid fa-dice fa-shake"></i>';
+const diceOne = document.createElement("img");
+diceOne.setAttribute("src", "./dice1.png");
+diceOne.setAttribute("alt", ".dice-images");
+diceOne.classList.add("dice");
 
-var numberOfDice = 1;
-var total = 0;
+const diceTwo = document.createElement("img");
+diceTwo.setAttribute("src", "./dice2.png");
+diceTwo.setAttribute("alt", ".dice-images");
+diceTwo.classList.add("dice");
 
-document.querySelector("#diceDisplay").innerHTML = preRoll;
+const diceThree = document.createElement("img");
+diceThree.setAttribute("src", "./dice3.png");
+diceThree.setAttribute("alt", ".dice-images");
+diceThree.classList.add("dice");
+
+const diceFour = document.createElement("img");
+diceFour.setAttribute("src", "./dice4.png");
+diceFour.setAttribute("alt", ".dice-images");
+diceFour.classList.add("dice");
+
+const diceFive = document.createElement("img");
+diceFive.setAttribute("src", "./dice5.png");
+diceFive.setAttribute("alt", ".dice-images");
+diceFive.classList.add("dice");
+
+const diceSix = document.createElement("img");
+diceSix.setAttribute("src", "./dice6.png");
+diceSix.setAttribute("alt", ".dice-images");
+diceSix.classList.add("dice");
+
+let numberOfDice = 1;
+let total = 0;
+const diceDisplay = document.querySelector("#diceDisplay");
+let rolling = true;
+
+const resetRoll = () => {
+  const preRoll = document.createElement("img");
+  preRoll.setAttribute("src", "./dices.png");
+  preRoll.setAttribute("alt", ".dice-images");
+  preRoll.classList.add("preRoll", "dice-shake");
+  return preRoll;
+};
+
+diceDisplay.appendChild(resetRoll());
 
 function updateDice() {
   numberOfDice = parseInt(document.getElementById("numberOfDiceChoice").value);
-  document.querySelector("#diceDisplay").innerHTML = preRoll;
+  diceDisplayappendChild(preRoll);
   document.querySelector("#totalDisplay").innerHTML = "";
 }
 
+// gets a random number between 1 and 6
 function roll() {
   var num = Math.floor(Math.random() * 6) + 1;
   return num;
 }
 
+// shows the output of the roll(s)
 function show() {
-  var display = document.querySelector("#diceDisplay").innerHTML;
-  if (display === preRoll) {
-    document.querySelector("#diceDisplay").innerHTML = "";
+  if (rolling) {
+    diceDisplay.innerHTML = "";
     total = 0;
+    console.log("running");
     for (let i = 0; i < numberOfDice; i++) {
       var diceRoll = roll();
       loadImage(diceRoll);
+      console.log("roll is " + diceRoll);
       total += diceRoll;
     }
     document.querySelector("#totalDisplay").innerHTML = total;
-  } else {
-    document.querySelector("#diceDisplay").innerHTML = preRoll;
+    rolling = false;
+    console.log(rolling);
+  } else if (!rolling) {
+    diceDisplay.innerHTML = "";
+    diceDisplay.appendChild(resetRoll());
     document.querySelector("#totalDisplay").innerHTML = "";
+    rolling = true;
   }
 }
 
 function loadImage(number) {
   if (number === 1) {
-    document.querySelector("#diceDisplay").innerHTML += diceOne;
+    diceDisplay.appendChild(diceOne);
   } else if (number === 2) {
-    document.querySelector("#diceDisplay").innerHTML += diceTwo;
+    diceDisplay.appendChild(diceTwo);
   } else if (number === 3) {
-    document.querySelector("#diceDisplay").innerHTML += diceThree;
+    diceDisplay.appendChild(diceThree);
   } else if (number === 4) {
-    document.querySelector("#diceDisplay").innerHTML += diceFour;
+    diceDisplay.appendChild(diceFour);
   } else if (number === 5) {
-    document.querySelector("#diceDisplay").innerHTML += diceFive;
+    diceDisplay.appendChild(diceFive);
   } else if (number === 6) {
-    document.querySelector("#diceDisplay").innerHTML += diceSix;
+    diceDisplay.appendChild(diceSix);
   } else {
     console.log("error");
   }

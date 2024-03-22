@@ -27,10 +27,38 @@ option {
   text-align: center;
 }
 
+.preRoll {
+  max-height: 50vh;
+}
+.dice {
+  max-height: 50%;
+}
+.dice-shake {
+  animation: shake 0.5s ease-in-out infinite !important;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-45deg);
+  }
+  50% {
+    transform: rotate(45deg);
+  }
+  75% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
 .dice-board,
 .main {
+  display: flex;
   flex-direction: column;
-
   padding: 6px;
   gap: 6px;
 }
@@ -38,6 +66,9 @@ option {
 .dice-board {
   height: 50vh;
   justify-content: space-around;
+}
+.dice-display {
+  flex-wrap: wrap;
 }
 
 .dice-selection {
