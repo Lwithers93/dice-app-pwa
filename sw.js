@@ -4,39 +4,41 @@
 const version = "v1.0";
 const staticCacheName = "diceApp-" + version;
 
-self.addEventListener("install", (e) => {
-  console.log("Registering sw");
-  e.waitUntil(
+////
+
+// List the files to precache
+const precacheResources = [
+  "/dice-app/",
+  "/dice-app/index.html",
+  "/dice-app/index.js",
+  "/dice-app/manifest.json",
+  "/dice-app/styles.css",
+  "/dice-app/W-logo.png",
+];
+
+// When the service worker is installing, open the cache and add the precache resources to it
+self.addEventListener("install", (event) => {
+  console.log("Service worker install event!");
+  event.waitUntil(
     caches
       .open(staticCacheName)
-      .then((cache) =>
-        cache.addAll([
-          "/dice-app/",
-          "/dice-app/index.html",
-          "/dice-app/index.js",
-          "/dice-app/manifest.json",
-          "/dice-app/styles.css",
-          "/dice-app/W-logo.png",
-        ])
-      )
+      .then((cache) => cache.addAll(precacheResources))
   );
 });
 
-self.addEventListener("activate", (e) => {
-  e.waitUntil(
-    caches.keys().then((keys) => {
-      return Promise.all(
-        keys
-          .filter((key) => key !== staticCacheName)
-          .map((key) => caches.delete(key))
-      );
+self.addEventListener("activate", (event) => {
+  console.log("Service worker activate event!");
+});
+
+// When there's an incoming fetch request, try and respond with a precached resource, otherwise fall back to the network
+self.addEventListener("fetch", (event) => {
+  console.log("Fetch intercepted for:", event.request.url);
+  event.respondWith(
+    caches.match(event.request).then((cachedResponse) => {
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+      return fetch(event.request);
     })
-  );
-});
-
-self.addEventListener("fetch", (e) => {
-  console.log(e.request.url);
-  e.respondWith(
-    caches.match(e.request).then((response) => response || fetch(e.request))
   );
 });
