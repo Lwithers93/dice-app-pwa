@@ -12,6 +12,6 @@
   ],
   "name": "Dice App",
   "short_name": "Dice App",
-  "start_url": "index.html",
+  "start_url": "/dice-app-pwa/index.html",
   "permissions": ["storage"]
 }
