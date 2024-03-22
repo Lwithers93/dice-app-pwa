@@ -57,6 +57,17 @@ function loadImage(number) {
   }
 }
 
+// =============================================================================
+// Cache and service worker
+// =============================================================================
+
+// Register service worker to control making site work offline
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/dice-app-pwa/sw.js").then(() => {
+    console.log("Service Worker Registered");
+  });
+}
+
 //// SECTION ON INSTALL /////
 
 // Code to handle install prompt on desktop
