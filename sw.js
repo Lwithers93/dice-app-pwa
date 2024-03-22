@@ -8,12 +8,12 @@ const staticCacheName = "diceApp-" + version;
 
 // List the files to precache
 const precacheResources = [
-  "/dice-app/",
-  "/dice-app/index.html",
-  "/dice-app/index.js",
-  "/dice-app/manifest.json",
-  "/dice-app/styles.css",
-  "/dice-app/W-logo.png",
+  "/dice-app-pwa/",
+  "/dice-app-pwa/index.html",
+  "/dice-app-pwa/index.js",
+  "/dice-app-pwa/manifest.json",
+  "/dice-app-pwa/styles.css",
+  "/dice-app-pwa/W-logo.png",
 ];
 
 self.addEventListener("install", (e) => {
