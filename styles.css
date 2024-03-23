@@ -5,33 +5,66 @@
   font-family: "Montserrat", sans-serif;
   color: white;
 }
-
 body {
   background-color: #009900;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
-
 .btn {
   color: black;
 }
-
-div {
+div,
+header,
+footer {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
+footer {
+  flex-direction: column;
+}
 select,
 option {
   color: black;
   font-size: 1.5rem;
   text-align: center;
 }
-
+.dice-board,
+.main {
+  flex-direction: column;
+  padding: 6px;
+  gap: 6px;
+}
+.dice-board {
+  justify-content: space-around;
+}
+.dice-selection {
+  font-size: 1.5rem;
+  padding: 6px;
+  gap: 6px;
+}
+.main > p {
+  font-size: 2rem;
+}
+#diceDisplay {
+  height: 40vh;
+  width: 80vw;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-content: center;
+}
+#totalDisplay {
+  font-size: 2rem;
+  height: 10vh;
+}
 .preRoll {
-  max-height: 50vh;
+  max-height: 50%;
 }
 .dice {
   max-height: 50%;
+  max-width: 40%;
 }
 .dice-shake {
   animation: shake 0.5s ease-in-out infinite !important;
@@ -53,49 +86,4 @@ option {
   100% {
     transform: rotate(0deg);
   }
-}
-
-.dice-board,
-.main {
-  display: flex;
-  flex-direction: column;
-  padding: 6px;
-  gap: 6px;
-}
-
-.dice-board {
-  height: 50vh;
-  justify-content: space-around;
-}
-.dice-display {
-  flex-wrap: wrap;
-}
-
-.dice-selection {
-  font-size: 1.5rem;
-  padding: 6px;
-  gap: 6px;
-}
-
-.main {
-  height: 100vh;
-}
-
-.main > p {
-  font-size: 2rem;
-}
-
-#diceDisplay {
-  width: 80vw;
-  flex-wrap: wrap;
-}
-
-#diceDisplay > i {
-  font-size: 8rem;
-  color: black;
-  padding: 6px;
-}
-
-#totalDisplay {
-  font-size: 2rem;
 }
