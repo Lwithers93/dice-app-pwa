@@ -1,38 +1,9 @@
-const diceOne = document.createElement("img");
-diceOne.setAttribute("src", "./dice1.png");
-diceOne.setAttribute("alt", ".dice-images");
-diceOne.classList.add("dice");
-
-const diceTwo = document.createElement("img");
-diceTwo.setAttribute("src", "./dice2.png");
-diceTwo.setAttribute("alt", ".dice-images");
-diceTwo.classList.add("dice");
-
-const diceThree = document.createElement("img");
-diceThree.setAttribute("src", "./dice3.png");
-diceThree.setAttribute("alt", ".dice-images");
-diceThree.classList.add("dice");
-
-const diceFour = document.createElement("img");
-diceFour.setAttribute("src", "./dice4.png");
-diceFour.setAttribute("alt", ".dice-images");
-diceFour.classList.add("dice");
-
-const diceFive = document.createElement("img");
-diceFive.setAttribute("src", "./dice5.png");
-diceFive.setAttribute("alt", ".dice-images");
-diceFive.classList.add("dice");
-
-const diceSix = document.createElement("img");
-diceSix.setAttribute("src", "./dice6.png");
-diceSix.setAttribute("alt", ".dice-images");
-diceSix.classList.add("dice");
-
 let numberOfDice = 1;
 let total = 0;
 const diceDisplay = document.querySelector("#diceDisplay");
 let rolling = true;
 
+// function to reset dice images
 const resetRoll = () => {
   const preRoll = document.createElement("img");
   preRoll.setAttribute("src", "./dices.png");
@@ -41,11 +12,32 @@ const resetRoll = () => {
   return preRoll;
 };
 
+// function to create dice images
+const setDice = (num) => {
+  // set filepath for img
+  let filePath = `./dice${num}.png`;
+  // create img element
+  const newDice = document.createElement("img");
+  // set attributes and class
+  newDice.setAttribute("src", filePath);
+  newDice.setAttribute("alt", "dice-image");
+  newDice.classList.add("dice");
+  // return element
+  return newDice;
+};
+
+// set initial display to roll
 diceDisplay.appendChild(resetRoll());
 
+// update the display when the user toggles the number of dice to roll
 function updateDice() {
+  //get the number of dice
   numberOfDice = parseInt(document.getElementById("numberOfDiceChoice").value);
-  diceDisplayappendChild(preRoll);
+  // clear display
+  diceDisplay.innerHTML = "";
+  // set display to preRoll image
+  diceDisplay.appendChild(resetRoll());
+  // clear the displayed total number
   document.querySelector("#totalDisplay").innerHTML = "";
 }
 
@@ -58,41 +50,30 @@ function roll() {
 // shows the output of the roll(s)
 function show() {
   if (rolling) {
+    // clear display and set total to 0
     diceDisplay.innerHTML = "";
     total = 0;
-    console.log("running");
+    // loop through number of dice to get each
     for (let i = 0; i < numberOfDice; i++) {
       var diceRoll = roll();
-      loadImage(diceRoll);
-      console.log("roll is " + diceRoll);
+      // for each roll, create and display dice image
+      diceDisplay.appendChild(setDice(diceRoll));
+      // add each roll to the total
       total += diceRoll;
     }
+    // display total of rolls
     document.querySelector("#totalDisplay").innerHTML = total;
+    // set rolling back to false
     rolling = false;
-    console.log(rolling);
   } else if (!rolling) {
+    // if not rolling, clear display dice
     diceDisplay.innerHTML = "";
+    // reset to preRoll image
     diceDisplay.appendChild(resetRoll());
+    // clear out displayed total number
     document.querySelector("#totalDisplay").innerHTML = "";
+    // set rolling back to true
     rolling = true;
-  }
-}
-
-function loadImage(number) {
-  if (number === 1) {
-    diceDisplay.appendChild(diceOne);
-  } else if (number === 2) {
-    diceDisplay.appendChild(diceTwo);
-  } else if (number === 3) {
-    diceDisplay.appendChild(diceThree);
-  } else if (number === 4) {
-    diceDisplay.appendChild(diceFour);
-  } else if (number === 5) {
-    diceDisplay.appendChild(diceFive);
-  } else if (number === 6) {
-    diceDisplay.appendChild(diceSix);
-  } else {
-    console.log("error");
   }
 }
 
