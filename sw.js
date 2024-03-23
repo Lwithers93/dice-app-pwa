@@ -1,7 +1,7 @@
 //
 // Major version: changes in behavior / new buttons etc
 // Minor version: new/edited words / bug fixes
-const version = "v1.1";
+const version = "v1.2";
 const staticCacheName = "diceApp-" + version;
 
 ////
