@@ -47,7 +47,7 @@ option {
   text-align: center;
 }
 .dice-board,
-.main {
+main {
   flex-direction: column;
   padding: 6px;
   gap: 6px;
@@ -60,7 +60,7 @@ option {
   padding: 6px;
   gap: 6px;
 }
-.main > p {
+main > p {
   font-size: 2rem;
 }
 #diceDisplay {
