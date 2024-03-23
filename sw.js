@@ -14,6 +14,13 @@ const precacheResources = [
   "/dice-app-pwa/manifest.webmanifest",
   "/dice-app-pwa/styles.css",
   "/dice-app-pwa/w-logo.png",
+  "/dice-app-pwa/src/dice1.png",
+  "/dice-app-pwa/src/dice2.png",
+  "/dice-app-pwa/src/dice3.png",
+  "/dice-app-pwa/src/dice4.png",
+  "/dice-app-pwa/src/dice5.png",
+  "/dice-app-pwa/src/dice6.png",
+  "/dice-app-pwa/src/dices.png",
 ];
 
 self.addEventListener("install", (e) => {
