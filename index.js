@@ -14,13 +14,11 @@ const resetRoll = () => {
 
 // function to create dice images
 const setDice = (num) => {
-  // set filepath for img
-  let filePath = `./dice${num}.png`;
   // create img element
   const newDice = document.createElement("img");
   // set attributes and class
-  newDice.setAttribute("src", filePath);
-  newDice.setAttribute("alt", "dice-image");
+  newDice.setAttribute("src", `./dice${num}.png`);
+  newDice.setAttribute("alt", `dice-image-${num}`);
   newDice.classList.add("dice");
   // return element
   return newDice;
