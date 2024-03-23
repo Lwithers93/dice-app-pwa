@@ -6,7 +6,7 @@ let rolling = true;
 // function to reset dice images
 const resetRoll = () => {
   const preRoll = document.createElement("img");
-  preRoll.setAttribute("src", "./dices.png");
+  preRoll.setAttribute("src", "./src/dices.png");
   preRoll.setAttribute("alt", ".dice-images");
   preRoll.classList.add("preRoll", "dice-shake");
   return preRoll;
@@ -17,7 +17,7 @@ const setDice = (num) => {
   // create img element
   const newDice = document.createElement("img");
   // set attributes and class
-  newDice.setAttribute("src", `./dice${num}.png`);
+  newDice.setAttribute("src", `./src/dice${num}.png`);
   newDice.setAttribute("alt", `dice-image-${num}`);
   newDice.classList.add("dice");
   // return element

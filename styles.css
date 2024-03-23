@@ -18,7 +18,8 @@ body {
 }
 div,
 header,
-footer {
+footer,
+main {
   display: flex;
   justify-content: center;
   align-items: center;
