@@ -8,6 +8,7 @@
 body {
   background-color: #009900;
   height: 100vh;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -22,8 +23,22 @@ footer {
   justify-content: center;
   align-items: center;
 }
+header {
+  padding: 6px;
+}
 footer {
   flex-direction: column;
+}
+footer p {
+  font-size: 1.25rem;
+  padding: 4px;
+}
+footer a {
+  text-decoration: none;
+}
+footer a:hover {
+  cursor: pointer;
+  color: black;
 }
 select,
 option {
@@ -49,7 +64,7 @@ option {
   font-size: 2rem;
 }
 #diceDisplay {
-  height: 40vh;
+  height: 50vh;
   width: 80vw;
   flex-wrap: wrap;
   gap: 6px;
@@ -58,9 +73,10 @@ option {
 #totalDisplay {
   font-size: 2rem;
   height: 10vh;
+  padding: 6px;
 }
 .preRoll {
-  max-height: 50%;
+  max-height: 70%;
 }
 .dice {
   max-height: 50%;
