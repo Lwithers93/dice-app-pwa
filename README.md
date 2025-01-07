@@ -1,8 +1,11 @@
 # dice-app
 
-available on github pages - https://lwithers93.github.io/dice-app-pwa/
+- Virtual dice application that let's the user roll between 1-4 dice.
+- Utilises progressive web application technology to enable download and be useable offline.
 
-click 'install' to download
+Published to github pages - https://lwithers93.github.io/dice-app-pwa/
+
+click 'install' to download to device for offline use
 
 ## Versions
 
